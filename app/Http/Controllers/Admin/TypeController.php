@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Type;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
-
+use App\Http\Controllers\Controller;
+use App\Models\Project;
+use Illuminate\Support\Facades\Storage;
 class TypeController extends Controller
 {
     /**
@@ -15,7 +17,8 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $types = Type::all();
+        return view('admin.projects.index', compact('types'));
     }
 
     /**

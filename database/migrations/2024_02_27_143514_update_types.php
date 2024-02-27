@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('types', function (Blueprint $table) {
-            $table->char('type_name', 40)->change();
-            $table->text('description')->change();
+            $table->char('type_name', 40);
+            $table->text('description');
         });
     }
 

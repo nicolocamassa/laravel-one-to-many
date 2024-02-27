@@ -12,14 +12,16 @@
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
-            <textarea class="form-control @error('description') is-invalid @enderror" id="description" rows="3" name="description"></textarea>
+            <textarea class="form-control @error('description') is-invalid @enderror" id="description" rows="3"
+                name="description"></textarea>
             @error('description')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
         <div class="mb-3">
             <label for="image" class="form-label">Image</label>
-            <input type="file" class="form-control @error('image') is-invalid @enderror" id="exampleInputPassword1" name="image">
+            <input type="file" class="form-control @error('image') is-invalid @enderror" id="exampleInputPassword1"
+                name="image">
             @error('image')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
@@ -40,8 +42,24 @@
                 <option value="Spagnolo">Spagnolo</option>
             </select>
             @error('language')
-              <div class="text-danger">{{ $message }}</div>
+                <div class="text-danger">{{ $message }}</div>
             @enderror
+        </div>
+
+        <div class="mb-3">
+            <div class="mb-3">
+                <label for="type_id" class="form-label">Type</label>
+                <select class="form-select @error('type_id') is-invalid @enderror" name="type_id" id="type_id">
+                    <option value="">Type</option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}">{{ $type->type_name }}</option>
+                    @endforeach
+                </select>
+                @error('type_id')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
         </div>
 
         <div class="mb-3">
@@ -57,7 +75,7 @@
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
-            
+
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
 

@@ -44,6 +44,21 @@
               <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
+        <div class="mb-3">
+            <div class="mb-3">
+                <label for="type_id" class="form-label">Type</label>
+                <select class="form-select @error('type_id') is-invalid @enderror" name="type_id" id="type_id">
+                    <option value="">Type</option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}">{{ $type->type_name }}</option>
+                    @endforeach
+                </select>
+                @error('type_id')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+        </div>
 
         <div class="mb-3">
             <div class="mb-3">

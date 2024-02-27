@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('types', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('projects', function (Blueprint $table) {
+            $table->unsignedBigInteger('type_id')->nullable();
+ 
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('set null');
         });
     }
 
@@ -26,6 +27,8 @@ return new class extends Migration
      */
     public function down()
     {
-        
+        Schema::table('projects', function (Blueprint $table) {
+            //
+        });
     }
 };

@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('types', function (Blueprint $table) {
+        Schema::table('projects', function (Blueprint $table) {
             $table->id();
+            $table->char('title', 30);
+            $table->text('description');
+            $table->char('image', 255)->nullable()->change();
+            $table->date('date');
+            $table->char('languages', 40);
+            $table->char('status', 20);
             $table->timestamps();
         });
     }
@@ -26,6 +32,8 @@ return new class extends Migration
      */
     public function down()
     {
-        
+        Schema::table('projects', function (Blueprint $table) {
+
+        });
     }
 };

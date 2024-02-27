@@ -7,6 +7,7 @@
             @foreach ($projects as $project)
 
                 <div class="col-sm-12 col-md-6 col-lg-3">
+                  
                     <div class="card mb-3" style="width: 18rem;">
                         <div class="card_content">
                           @if($project->image !== null)
@@ -17,6 +18,8 @@
                         <div class="card-body">
                           <h5 class="card-title">{{ $project->title }}</h5>
                           <p class="card-text">{{ $project->description }}</p>
+                        
+                          <h1>{{ $project->type ?  $project->type->type_name : 'Niente'}}</h1>
 
                           <div class="d-flex">
 
